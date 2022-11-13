@@ -1,0 +1,186 @@
+README - C:\wamp64\www\SB_ver14
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+This folder SB_ver3 is third version
+1st version - original working folder made in Bio Stichting - stichting_bio
+2nd version - changes made by neha
+- working login, log off, signup pages
+- linked pages, already working from 1st version
+- many other small aesthtic changes
+
+3rd version - changes made by neha
+- make all the multi page system into single page system using php.
+- extensive changes in lijst_reg_norm done.
+- single page used to display data instead of various pages-
+- data toggle for sorting yet to be incorporated.
+- alarm link yet to be worked on.
+
+4th version-
+- added data display ascending and descending when clicked on active links - toggle for sorting.
+- hence removed files-
+	registraties\storing\lijst_nr.php and ..lijst_nr2.php and ..lijst_all_nr.phpand .. lijst_all_nr2.php
+	registraties\storing\lijst_reg_norm2.php
+	registraties\storing\lijst_gebouw.php and ..lijst_all_gebouw.php and ..lijst_all_gebouw.php
+	registraties\storing\lijst_td.php and ..lijst_all_td.php
+	registraties\storing\lijst_prioriteit.php and ..lijst_all_prioriteit.php 
+	registraties\storing\lijst_all.php and lijst_all2.php and lijst_all_bedrijf.php
+	
+- alarm link not incorporated.
+- wish to add pagination (specifically important while displaying all the records(controle-alles link)
+
+5th version-
+clean up time!!
+removed following
+-directory .._notes from sub folders in registraties 
+-file copy of connect storing from dir connections
+-removed js folder 
+-copied images from img folder to images folder.
+-removed img folder
+- alarmmeldingen link active and working with sort.
+- Nr(data) link not yet incorporated.
+
+files to be removed from registraties/alarm are-
+Kopie van lijst_alarm_gebouw_all.php
+lijst_alarm_all.php
+lijst_alarm_gebouw_all.php
+lijst_alarm_gebouw.php
+
+
+6th version-
+clean up time!!
+removed the following files from registraties/alarm -
+Kopie van lijst_alarm_gebouw_all.php
+lijst_alarm_all.php
+lijst_alarm_gebouw_all.php
+lijst_alarm_gebouw.php
+
+following files could be removed (but not sure) from SB6 folder-
+C:\wamp64\www\SB_ver6\Config.php
+C:\wamp64\www\SB_ver6\welcome.php
+C:\wamp64\www\SB_ver6\registraties\style.css 
+removed and checked- they are not required. All the links and pages working well.
+Incorporated the following-
+- Unique username, added unique index to the column "username" in the database "registraties" in table "reg_medew".This gives SQL error 1062. This is checked in "functions.php" and corresponding error is displayed. Also works for create_user.php (used by admin only)
+- Focus/Cursor on the first field on login page. "login.php"
+- Name displayed on the landing page. "header.php"
+Modal Form- 
+- Removed current time that was displayed in the modal form.
+- Removed extra buttons from the modal. Now only 1 button is used to save the data in the database.
+- Cancel and close buttons work. BUT!
+- bug- step1-Form opened-> step2-data changed or added new info-> step3-form closed -> step4-form opened again >> The data from step 2 is displayed even though it is not yet saved in the database.
+
+7th version-
+- Focus on the first field of the register user page. "register.php"
+- Focus on the first field of the register admin page. "create_user.php"
+- Name field added. "register.php", "create_user.php", "functions.php"
+- Username uniqueness incorparated completely and checked! Working!
+- Cancel and close buttons reset the form.(bug from version 6)
+- Checked Update registratie button thoroughly.It updates the database when clicked.(Already incorporated in ver 6 ,I think!)
+
+8th version-
+- Made cancel changes button as just Cancel and closes the modal.
+- Admin/User control inside modal
+- bug- When admin is logged in, the form reset() does not work. It works fine when user is logged in.
+
+
+9th version
+-logic for closing the modal and resetting the form- link : 
+https://stackoverflow.com/questions/33477930/close-bootstrap-modal-on-form-submit
+It works!!
+
+10th version-major changes made-
+before- 
+- login page --> index_1 (main landing page) --> tabs opened lijst_reg_norm( this file is included using php method include()) This also filled the forms in the background **1--> clicking on a reg_ID would open a prefilled form that included the modal for that reg_ID 
+**1 problem with this was with any event related to reloading the list , it increased the reloading time. It slowed the process.
+so now- 
+- login page --> index_1 (main landing page) --> tabs opened lijst_reg_norm( this file is included using php method include()) -->
+clicking on a reg_ID would open a prefilled form ( this opens a modal and then loads the form using registraties.php).The red_ID is passed using data attribute using data-href.Using $_GET['reg_ID] we capture this number and then load the data to the form that is loaded when modal opens.**2
+**2 With these changes made now, the cancel buttons work fine the form is loaded fine. But the update of the data is not working. 
+I think, the problem is when the modal is closed so is the file that contains the logic to submit the data. I am not sure though. This problem is out of the blue now. 
+
+- The field associated to Medewerker BIO changed. It has a drop down list of the users + admins and is updated in a NEW column- td_new in the reg_storing table of registraties database.( table : reg_storing, database : registraties ,user : root, password : Sb1234#) 
+
+11th version -
+- removed the files created for testing purposes.
+- header.php and footer.php files removed, the code was very small and hence copied it in index_1.php
+- removed folder C:\wamp64\www\Sb_ver11\Connections.
+- new file updatecode.php for updating the changed data in the form into the database
+
+12th version -
+- submit buttons on 2 different forms- thre reg-ID and new registrations are working .
+- sorting is faster
+- functionality is good.
+
+13th version-
+- removed C:\wamp64\www\registraties\img folder
+- All the links to forms are opening when the respective buttons are clicked.
+New registratie, update registratie; 
+new Alarm melding, update alarm melding; 
+new medewerker, update medewerker; 
+new bedrijf, update bedrijf; log out; 
+list jobs assigned to logged in user/admin; 
+list of jobs not assigned to anyone ; 
+list of 'afgehandled' jobs.
+- If the page is closed , on opening a new browser or tab, the user is not prompted to log in first but is getting access to previously opened pages , if not logged out .
+
+14th version-
+bug solved-
+bug - on submitting any form( registratie, alarm, medewerker or bedrijf) the landing page used to be loaded. This was happening because, even though the index_1.php was loaded, the $_GET['page'] variable was lost. Hence had to find an alternative to this issue.
+Now, the respective pages are loaded,the solution was found on -
+https://stackoverflow.com/questions/33483960/how-to-reload-a-page-on-submit
+still, the new- alarm form on submitting loads the landing page. The problem got solved when I canged the path to the file that contained the form.
+Whohoo!! The project is over!!
+functions.php updated. 
+
+14th Version(updated in 15th)-
+deleted home.php( was mostly used for testing purposes.I think!!!)
+new folder created called connect that contains functions.php file cut and pasted from main directory.
+changes made in following files accrodingly-
+index_1.php
+register.php
+login.php
+index.php
+folder-storing in registraties
+lijst_reg_norm.php
+lijst_reg_norm_alles.php
+nieuw_reg.php
+registratie.php
+updatecode.php
+folder- beheer in registraties
+beheer.php
+beheer_bedrijven.php
+bedrijf.php
+nieuw_bedrijf.php
+beheer_medewerkers.php
+medewerker.php
+nieuw_medewerker.php
+folder-alarm in registraties
+lijst_alarm_norm.php
+alarmmelding.php
+nieuw_alarmmelding.php
+
+index.php- The functionaity- if the user closes the window or tab without logging out, and opens the application, the uesr was asked to logout first and login again. This is not necessary. It confuses the user. So the functionality is removed.
+
+The user is logged out automatically if inactive.
+
+Restrictions on the user while accessing forms- new medewerker, existting medeweker information.
+
+changed the background colors.
+
+SQL query to create username
+UPDATE reg_medew
+SET
+  `username` = SUBSTRING_INDEX(`name`, ' ', 1);
+UPDATE reg_medew
+SET
+  `username` = LOWER(`username`);
+  
+login page adjusted aesthetically
+change and update password incoporated.  
+
+field size changed in forms according to field size in database.(changes made only in registraties.php)
+changes in placement of the fields in form- registraties.php and new_reg.php
+word wrap in the list.
+in new medewerker pwd and username funtionality incorporated
+korte omschriving input changed(size,maxlength).
+populated kostenpl fro reg_gebouw in the database. Pulling that data to fill in the fiel kostenplaats.
+when "controle" = ja then "controle door" is required.
