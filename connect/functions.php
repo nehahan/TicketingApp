@@ -4,7 +4,8 @@
 session_start();
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', 'Sb1234#', 'ticketing');
+
+$db = mysqli_connect('ticketapp', 'user', '', 'ticketing');
 
 // variable declaration
 $username = "";
@@ -199,6 +200,6 @@ function isUser()
 //Added in Version 14.
 //connect to the database
 $database_connect_storing = "ticketing";
-$connect_storing = mysqli_connect('localhost', 'root', 'Sb1234#', 'ticketing');
+$connect_storing = mysqli_connect('ticketapp', 'user', '', 'ticketing');
 
 ?>
