@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 14, 2022 at 02:25 AM
+-- Generation Time: Nov 14, 2022 at 01:16 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `reg_medew` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `username_2` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reg_medew`
@@ -304,6 +304,7 @@ CREATE TABLE IF NOT EXISTS `reg_medew` (
 
 INSERT INTO `reg_medew` (`id`, `username`, `name`, `email`, `user_type`, `password`, `actief`, `functie`, `TelIntern`, `TelExtern`, `RegControl`, `AlarmControl`, `zichtbaar`) VALUES
 (64, 'neha', 'Neha Hanamsagar', 'neha@gmail.com', 'admin', '262f5bdd0af9098e7443ab1f8e435290', 'nee', NULL, NULL, NULL, 'ja', 'nee', 'ja'),
+(106, 'user', 'User', 'user@user.user', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'nee', 'Visitor', '12334567', '123456', 'nee', 'nee', 'ja'),
 (105, 'frank', 'Frank M', 'frank@f.c', 'user', '26253c50741faa9c2e2b836773c69fe6', 'nee', 'Plumber', '53535353535353', '34', 'nee', NULL, 'ja'),
 (104, 'shilpa', 'Shilpa ', 'shil@shil.com', 'admin', '02a08433d06bdd4161f27179de60584c', 'nee', 'Arrangement Coordinator', '12345678', '1', 'ja', NULL, 'ja'),
 (103, 'amit', 'amit dixit', 'amit@g.com', 'user', '0cb1eb413b8f7cee17701a37a1d74dc3', 'nee', 'technical person', '12121212', '121212', 'nee', 'nee', 'ja');
