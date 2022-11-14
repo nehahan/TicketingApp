@@ -16,13 +16,13 @@ register.php (Sign up page)
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bio storingen en registraties</title>
+	<title>Ticketing App</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body id = "login-page">
 	<div class = "container ">
 		<div class="header">
-		<h2>Bio Storingen en Registraties</h2>
+		<h1>Ticketing App</h1>
 		<br>
 			<h2>Login</h2>
 		</div>
@@ -43,7 +43,7 @@ register.php (Sign up page)
 			</div>
 			
 			<p id="login-footer">
-				Geen inloggegevens? Stuur een e-mail naar <em>receptie@stichtingbio.nl</em>
+				
 			</p>
 		</form>
 		</div>
